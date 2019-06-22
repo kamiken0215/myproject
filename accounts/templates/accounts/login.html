@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ろぐいんのてすと</title>
+<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<body id="login">
+    <div id="black_filter">
+        <!-- header始まり-->
+        <header>
+        </header>
+        <!-- headerおわり-->
+        <!-- wrap始まり-->
+        <div id="wrap">
+            <h1>URL Administrator</h1>
+                <form method="post">{% csrf_token %}
+                    <div id="form_container">
+                    <!-- 入力フォーム始まり-->
+                        <div id="form_con_p"><p>LOG IN</p></div>
+                        <div id="form_con_user_name"><input type="text" id="user_name" name="username" placeholder="UserName"></div>
+                        <div id="form_con_password"><input type="text" id="password" name="password" placeholder="Password"></div>
+                        <div id="form_con_save"><input type="checkbox" id="save">SAVE</div>
+                        <div id="form_con_submit_login"><button type="submit" id="submit_login_info" class="orange_btn">LOGIN</button></div>
+                    </div>
+                </form>
+                <!-- 入力フォームおわり-->
+        </div>
+        <!-- wrapおわり-->
+        <!-- footer始まり-->
+        <footer>
+            <small>(C)2019 KK</small>
+        </footer>
+        <!-- footerおわり-->
+    </div>
+</body>
+</head>
+</html>
