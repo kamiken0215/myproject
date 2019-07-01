@@ -40,332 +40,299 @@
                     $("#tab1:checked ~ #tab1_content").css({"display":"block" ,"background-color":"aliceblue"});
                 })
             </script>
+            {% for k, v in info_dict.tab_list.items %}
+              <div class="tab_content" id="tab{{ k }}_content">
+                <div class="tab_content_description">
+                    <p class="c-txtsp"></p>
+                </div>
+                    <!--テーブル始まり-->
+                    <table id="table">
+                        <thead>
+                            <tr>
+                              <th id="first_th">Sel</th>
+                              <th id="second_th">Note</th>
+                              <th id="third_th">URL</th>
+                              <th id="forth_th">Edit</th>
+                              <th id="fifth_th">fav</th>
+                              <th id="sixth_th">Date</th>
+                            </tr>
+                        </thead>
 
-          <div class="tab_content" id="tab1_content">
-            <div class="tab_content_description">
-                <!--テーブル始まり-->
-                <table id="table">
-                    <thead>
+                      <tbody>
+
+                        {% for key, value in info_dict.panzer.items %}
+                            {% if k == value.2 %}
+                                <tr>
+                                <td data-label="select" class="td_{{ key }}">
+                                    <label>
+                                        <input type="checkbox" class="main_checkbox{{ key }}">
+                                        <span class="checkbox_parts{{ key }}"></span>
+                                    </label>
+                                </td>
+                                <td data-label="note" class="td_{{ key }}">
+                                    <div contenteditable="false" id="note_editable{{ key }}">
+                                        <p>{{ value.0 }}</p>
+                                    </div>
+                                </td>
+                                <td data-label="URL" class="td_{{ key }}">
+                                    <div contenteditable="false" id="url_editable{{ key }}">
+                                        <a href="{{ value.1 }}">{{ value.1 }}</a>
+                                    </div>
+                                <td data-label="edit" class="td_{{ key }}">
+                                    <label>
+                                        <input type="checkbox" class="main_checkbox{{ key }}" onclick="change_status_editable('td_{{ key }}','note_editable{{ key }}','url_editable{{ key }}',this.checked);">
+                                        <span class="checkbox_parts{{ key }}"></span>
+                                    </label>
+                                </td>
+                                <td data-label="fav" class="td_{{ key }}">☆
+                                </td>
+                                <td data-label="date" class="td_{{ key }}">2019-06-14
+                                </td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+
                         <tr>
-                          <th id="first_th">Sel</th>
-                          <th id="second_th">Note</th>
-                          <th id="third_th">URL</th>
-                          <th id="forth_th">Edit</th>
-                          <th id="fifth_th">fav</th>
-                          <th id="sixth_th">Date</th>
+                            <td data-label="select">
+                                <label>
+                                <input type="checkbox" id="select_url3">
+                                <span id="select_checkbox_parts3"></span>
+                                </label>
+                            </td>
+                            <td data-label="note">
+                                <div contenteditable="true">
+                                google
+                                </div>
+                            </td>
+                            <td data-label="URL">
+                                <div contenteditable="false">
+                                    <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
+                                </div>
+                            <td data-label="edit">
+                                <input type="checkbox">
+                            </td>
+                            <td data-label="fav">☆
+                            </td>
+                            <td data-label="date">2019-06-13
+                            </td>
                         </tr>
-                    </thead>
 
-                  <tbody>
+                        <tr>
+                            <td data-label="select">
+                                <label>
+                                <input type="checkbox" id="select_url4">
+                                <span id="select_checkbox_parts4"></span>
+                                </label>
+                            </td>
+                            <td data-label="note">
+                                <div contenteditable="true">
+                                google
+                                </div>
+                            </td>
+                            <td data-label="URL">
+                                <div contenteditable="false">
+                                    <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
+                                </div>
+                            <td data-label="edit">
+                                <input type="checkbox">
+                            </td>
+                            <td data-label="fav">☆
+                            </td>
+                            <td data-label="date">2019-06-13
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url">
-                            <span id="select_checkbox_parts"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div id="note_editable">
-                            青系のデザイン
-                            </div>
-                        </td>
-                        <td data-label="URL">
-                            <div id="url_editable">
-                                https://jp.depositphotos.com/215901582/stock-illustration-landing-page-template-invest-best.html
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox" id="edit_content" onclick="change_status_editable('note_editable1','url_editable1',this.checked);">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
+                        <tr>
+                            <td data-label="select">
+                                <label>
+                                <input type="checkbox" id="select_url5">
+                                <span id="select_checkbox_parts5"></span>
+                                </label>
+                            </td>
+                            <td data-label="note">
+                                <div contenteditable="true">
+                                google
+                                </div>
+                            </td>
+                            <td data-label="URL">
+                                <div contenteditable="false">
+                                    <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
+                                </div>
+                            <td data-label="edit">
+                                <input type="checkbox">
+                            </td>
+                            <td data-label="fav">☆
+                            </td>
+                            <td data-label="date">2019-06-13
+                            </td>
+                        </tr>
 
+                        <tr>
+                            <td data-label="select">
+                                <label>
+                                <input type="checkbox" id="select_url6">
+                                <span id="select_checkbox_parts6"></span>
+                                </label>
+                            </td>
+                            <td data-label="note">
+                                <div contenteditable="true">
+                                google
+                                </div>
+                            </td>
+                            <td data-label="URL">
+                                <div contenteditable="false">
+                                    <a href="https://www.google.com/?hl=ja">https:.com/?hl=ja</a>
+                                </div>
+                            <td data-label="edit">
+                                <input type="checkbox">
+                            </td>
+                            <td data-label="fav">☆
+                            </td>
+                            <td data-label="date">2019-06-13
+                            </td>
+                        </tr>
 
-                    {% for key, value in info_dict.panzer.items %}
-                    <tr>
-                        <td data-label="select" class="td_{{ key }}">
-                            <label>
-                                <input type="checkbox" class="main_checkbox{{ key }}">
-                                <span class="checkbox_parts{{ key }}"></span>
-                            </label>
-                        </td>
-                        <td data-label="note" class="td_{{ key }}">
-                            <div contenteditable="false" id="note_editable{{ key }}">
-                                <p>{{ value.0 }}</p>
-                            </div>
-                        </td>
-                        <td data-label="URL" class="td_{{ key }}">
-                            <div contenteditable="false" id="url_editable{{ key }}">
-                                <a href="{{ value.1 }}">{{ value.1 }}</a>
-                            </div>
-                        <td data-label="edit" class="td_{{ key }}">
-                            <label>
-                                <input type="checkbox" class="main_checkbox{{ key }}" onclick="change_status_editable('td_{{ key }}','note_editable{{ key }}','url_editable{{ key }}',this.checked);">
-                                <span class="checkbox_parts{{ key }}"></span>
-                            </label>
-                        </td>
-                        <td data-label="fav" class="td_{{ key }}">☆
-                        </td>
-                        <td data-label="date" class="td_{{ key }}">2019-06-14
-                        </td>
-                    </tr>
-                    {% endfor %}
+                        <tr>
+                            <td data-label="select">
+                                <label>
+                                <input type="checkbox" id="select_url7">
+                                <span id="select_checkbox_parts7"></span>
+                                </label>
+                            </td>
+                            <td data-label="note">
+                                <div contenteditable="true">
+                                google
+                                </div>
+                            </td>
+                            <td data-label="URL">
+                                <div contenteditable="false">
+                                    <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
+                                </div>
+                            <td data-label="edit">
+                                <input type="checkbox">
+                            </td>
+                            <td data-label="fav">☆
+                            </td>
+                            <td data-label="date">2019-06-13
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url3">
-                            <span id="select_checkbox_parts3"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div contenteditable="true">
-                            google
-                            </div>
-                        </td>
-                        <td data-label="URL">
-                            <div contenteditable="false">
-                                <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
+                        <tr>
+                            <td data-label="select">
+                                <label>
+                                <input type="checkbox" id="select_url8">
+                                <span id="select_checkbox_parts8"></span>
+                                </label>
+                            </td>
+                            <td data-label="note">
+                                <div contenteditable="true">
+                                google
+                                </div>
+                            </td>
+                            <td data-label="URL">
+                                <div contenteditable="false">
+                                    <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
+                                </div>
+                            <td data-label="edit">
+                                <input type="checkbox">
+                            </td>
+                            <td data-label="fav">☆
+                            </td>
+                            <td data-label="date">2019-06-13
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url4">
-                            <span id="select_checkbox_parts4"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div contenteditable="true">
-                            google
-                            </div>
-                        </td>
-                        <td data-label="URL">
-                            <div contenteditable="false">
-                                <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
+                        <tr>
+                            <td data-label="select">
+                                <label>
+                                <input type="checkbox" id="select_url9">
+                                <span id="select_checkbox_parts9"></span>
+                                </label>
+                            </td>
+                            <td data-label="note">
+                                <div contenteditable="true">
+                                google
+                                </div>
+                            </td>
+                            <td data-label="URL">
+                                <div contenteditable="false">
+                                    <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
+                                </div>
+                            <td data-label="edit">
+                                <input type="checkbox">
+                            </td>
+                            <td data-label="fav">☆
+                            </td>
+                            <td data-label="date">2019-06-13
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url5">
-                            <span id="select_checkbox_parts5"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div contenteditable="true">
-                            google
-                            </div>
-                        </td>
-                        <td data-label="URL">
-                            <div contenteditable="false">
-                                <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
+                        <tr>
+                            <td data-label="select">
+                                <label>
+                                <input type="checkbox" id="select_url10">
+                                <span id="select_checkbox_parts10"></span>
+                                </label>
+                            </td>
+                            <td data-label="note">
+                                <div contenteditable="true">
+                                google
+                                </div>
+                            </td>
+                            <td data-label="URL">
+                                <div contenteditable="false">
+                                    <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
+                                </div>
+                            <td data-label="edit">
+                                <input type="checkbox">
+                            </td>
+                            <td data-label="fav">☆
+                            </td>
+                            <td data-label="date">2019-06-13
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url6">
-                            <span id="select_checkbox_parts6"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div contenteditable="true">
-                            google
-                            </div>
-                        </td>
-                        <td data-label="URL">
-                            <div contenteditable="false">
-                                <a href="https://www.google.com/?hl=ja">https:.com/?hl=ja</a>
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
+                        <tr>
+                            <td data-label="select">
+                                <label>
+                                <input type="checkbox" id="select_url11">
+                                <span id="select_checkbox_parts11"></span>
+                                </label>
+                            </td>
+                            <td data-label="note">
+                                <div contenteditable="true">
+                                google
+                                </div>
+                            </td>
+                            <td data-label="URL">
+                                <div contenteditable="false">
+                                    <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
+                                </div>
+                            <td data-label="edit">
+                                <input type="checkbox">
+                            </td>
+                            <td data-label="fav">☆
+                            </td>
+                            <td data-label="date">2019-06-13
+                            </td>
+                        </tr>
 
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url7">
-                            <span id="select_checkbox_parts7"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div contenteditable="true">
-                            google
-                            </div>
-                        </td>
-                        <td data-label="URL">
-                            <div contenteditable="false">
-                                <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
+                      </tbody>
 
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url8">
-                            <span id="select_checkbox_parts8"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div contenteditable="true">
-                            google
-                            </div>
-                        </td>
-                        <td data-label="URL">
-                            <div contenteditable="false">
-                                <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
+                    </table>
+                    <!--テーブル終わり-->
 
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url9">
-                            <span id="select_checkbox_parts9"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div contenteditable="true">
-                            google
+                    <!--管理コンテンツ始まり-->
+                    <div class="exection_area">
+                        <div id="exection_container">
+                            <div id="exe_con_submit">
+                                    <button type="button" class="orange_main_btn" onclick="">ADD</button>
                             </div>
-                        </td>
-                        <td data-label="URL">
-                            <div contenteditable="false">
-                                <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url10">
-                            <span id="select_checkbox_parts10"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div contenteditable="true">
-                            google
-                            </div>
-                        </td>
-                        <td data-label="URL">
-                            <div contenteditable="false">
-                                <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td data-label="select">
-                            <label>
-                            <input type="checkbox" id="select_url11">
-                            <span id="select_checkbox_parts11"></span>
-                            </label>
-                        </td>
-                        <td data-label="note">
-                            <div contenteditable="true">
-                            google
-                            </div>
-                        </td>
-                        <td data-label="URL">
-                            <div contenteditable="false">
-                                <a href="https://www.google.com/?hl=ja">https://www.google.com/?hl=ja</a>
-                            </div>
-                        <td data-label="edit">
-                            <input type="checkbox">
-                        </td>
-                        <td data-label="fav">☆
-                        </td>
-                        <td data-label="date">2019-06-13
-                        </td>
-                    </tr>
-
-                  </tbody>
-
-                </table>
-                <!--テーブル終わり-->
-
-                <!--管理コンテンツ始まり-->
-                <div class="exection_area">
-                    <div id="exection_container">
-                        <div id="exe_con_submit">
-                                <button type="button" class="orange_main_btn" onclick="">GO!</button>
                         </div>
                     </div>
-                </div>
-                <!--管理コンテンツ終わり-->
-
-            </div>
-          </div>
-          <div class="tab_content" id="tab2_content">
-            <div class="tab_content_description">
-              <p class="c-txtsp">プログラミングの内容がここに入ります</p>
-            </div>
-          </div>
-          <div class="tab_content" id="tab3_content">
-            <div class="tab_content_description">
-              <p class="c-txtsp">デザインの内容がここに入ります</p>
-            </div>
-          </div>
+                    <!--管理コンテンツ終わり-->
+              </div>
+            {% endfor %}
         </div>
     </div>
     <!-- wrapおわり-->
