@@ -46,7 +46,7 @@
                     <p class="c-txtsp"></p>
                 </div>
                     <!--テーブル始まり-->
-                    <table id="table">
+                    <table id="table{{ k }}">
                         <thead>
                             <tr>
                               <th id="first_th">Sel</th>
@@ -58,14 +58,14 @@
                             </tr>
                         </thead>
 
-                      <tbody>
+                      <tbody id="tbody{{ k }}">
 
                         {% for key, value in info_dict.panzer.items %}
                             {% if k == value.2 %}
                                 <tr>
                                 <td data-label="select" class="td_{{ key }}">
                                     <label>
-                                        <input type="checkbox" class="main_checkbox{{ key }}">
+                                        <input type="checkbox" class="main_checkbox{{ key }}" name="edit">
                                         <span class="checkbox_parts{{ key }}"></span>
                                     </label>
                                 </td>
@@ -326,7 +326,17 @@
                     <div class="exection_area">
                         <div id="exection_container">
                             <div id="exe_con_submit">
-                                    <button type="button" class="orange_main_btn" onclick="">ADD</button>
+                                {% for last_k, last_v in info_dict.panzer.items|slice:":" %}
+                                    {% if forloop.last %}
+                                        <form action="" method="POST">
+                                        {% csrf_token %}
+                                            <button type="button" class="orange_main_btn" id="add_url_button{{ k }}" onclick="add_table_row('tbody{{ k }}','{{ last_k }}')">ADD</button>
+                                            <input type="hidden" name="prm" value="test1"/>
+                                            <input type="hidden" name="prm" value="test2"/>
+                                            <button type="submit" class="orange_main_btn" id="ins_url_button{{ k }}">SAVE</button>
+                                        </form>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>

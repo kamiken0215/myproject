@@ -336,7 +336,7 @@ input[name="tab_item"] {
 /*タブ終わり*/
 
 /*テーブル*/
-#table {
+[id^=table] {
     display: block;
 	margin: 0;
 	background: #fff;
@@ -352,7 +352,7 @@ thead {
     color: #FFF;
 }
 
-tbody{
+[id^=tbody]{
     display: block;
     overflow-y: scroll;
     height: 20vw;
@@ -406,7 +406,7 @@ tbody{
         border: 5px solid #ffffff;
     }
 
-    #table {
+    [id^=table] {
         display: block;
         margin: 0;
         background: #fff;
@@ -417,7 +417,7 @@ tbody{
         font-size: 16px;
     }
 
-        tbody{
+    [id^=tbody]{
         display: block;
         overflow-y: scroll;
         height: 40vw;
@@ -426,7 +426,7 @@ tbody{
 
 @media only screen and (max-width:400px){
 
-    #table {
+    [id^=table] {
         display: block;
         margin: 0;
         background: #fff;
@@ -436,7 +436,7 @@ tbody{
         font-size: 16px;
     }
 
-        tbody{
+    [id^=tbody]{
         display: block;
         overflow-y: scroll;
         height: 60vw;
@@ -459,27 +459,27 @@ td {
     text-align: center;
 }
 
-#table #first_th{
+[id^=table] #first_th{
     width: 5vw;
 }
 
-#table #second_th{
+[id^=table] #second_th{
     width: 45vw;
 }
 
-#table #third_th{
+[id^=table] #third_th{
     width: 30vw;
 }
 
-#table #forth_th{
+[id^=table] #forth_th{
     width: 5vw;
 }
 
-#table #fifth_th{
+[id^=table] #fifth_th{
     width: 5vw;
 }
 
-#table #sixth_th{
+[id^=table] #sixth_th{
     width: 10vw;
 }
 
@@ -524,11 +524,11 @@ tr [data-label="note"]{
     padding-left: 10px;
 }
 
-table tr:nth-child(odd) td {
+[id^="tbody"] tr:nth-child(odd){
 	background: #E9F0FA;
 }
 
-table tr:nth-child(even) td {
+[id^="tbody"] tr:nth-child(even){
 	background: #ffffff;
 }
 

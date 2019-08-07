@@ -25,6 +25,10 @@ class indexView(TemplateView):
 
     def index_view(request):
 
+        form_test = request.POST.getlist("prm", "てすと")
+        for i in form_test:
+            print(i)
+
         # all = InsideTab.objects.values('url_id', 'note', 'url')
         all = InsideTab.objects.all()
 
